@@ -1,0 +1,66 @@
+-- MySQL dump 10.13  Distrib 5.5.31, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: cmall
+-- ------------------------------------------------------
+-- Server version	5.5.31-1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `xx_merchant`
+--
+
+DROP TABLE IF EXISTS `xx_merchant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `xx_merchant` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '序号',
+  `merchant_category` bigint(20) DEFAULT NULL COMMENT '对应商户分类',
+  `name` varchar(100) NOT NULL COMMENT '商户名',
+  `ename` varchar(100) NOT NULL COMMENT '英文名',
+  `registered_address` varchar(255) NOT NULL COMMENT '注册地址',
+  `phone` varchar(255) NOT NULL COMMENT '座机号',
+  `email` varchar(255) NOT NULL COMMENT '邮箱',
+  `business_address` varchar(255) NOT NULL COMMENT '经营地址',
+  `license_number` varchar(255) NOT NULL COMMENT '营业执照号码',
+  `license_picture` varchar(255) NOT NULL COMMENT '营业执照照片',
+  `organization_code` varchar(255) DEFAULT NULL COMMENT '组织机构代码',
+  `organization_code_picture` varchar(255) DEFAULT NULL COMMENT '组织机构代码照片',
+  `mobile` varchar(255) NOT NULL COMMENT '手机号',
+  `is_enabled` bit(1) NOT NULL COMMENT '是否启用',
+  `is_approved` bigint(20) NOT NULL COMMENT '是否审核通过',
+  `create_date` datetime NOT NULL COMMENT '创建时间',
+  `modify_date` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='商户';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xx_merchant`
+--
+
+LOCK TABLES `xx_merchant` WRITE;
+/*!40000 ALTER TABLE `xx_merchant` DISABLE KEYS */;
+INSERT INTO `xx_merchant` VALUES (1,1,'超女服装','mgril','兰州市安宁区','13098765432','machine.of.awareness@gmail.com','兰州市安宁区','12365478-09871','image','212934-97488','image','13099377543','',1,'2013-07-11 00:00:00','2013-07-11 00:00:00'),(22,1,'示例商户','machine','兰州市安宁区','13098765432','machine.of.awareness@gmail.com','兰州市安宁区','12365478-09871','image','212934-97488','image','13099377543','',1,'2013-07-11 00:00:00','2013-07-11 00:00:00');
+/*!40000 ALTER TABLE `xx_merchant` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-09-11 15:55:09

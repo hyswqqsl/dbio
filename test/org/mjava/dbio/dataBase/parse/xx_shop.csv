@@ -1,0 +1,13 @@
+Field	Type	Null	Key	Default	Extra
+id	bigint(20)	NO	PRI	NULL	auto_increment
+area	bigint(20)	NO	MUL	NULL	
+name	varchar(255)	NO		NULL	
+merchant	bigint(20)	NO	MUL	NULL	
+address	varchar(255)	NO		NULL	
+phone	varchar(100)	YES		NULL	
+business_time	datetime	YES		NULL	
+completion_time	datetime	YES		NULL	
+is_enabled	bit(1)	NO		NULL	
+logo	varchar(255)	YES		NULL	
+create_date	datetime	NO		NULL	
+modify_date	datetime	NO		NULL	

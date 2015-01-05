@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<configuration>
+  <!-- 数据库信息 -->
+  <database username="root" password="8912737" server="localhost" port="3306" name="cmall" />
+  <!-- 导入/出目录 -->
+  <iopath name="/home/machine/workspace/jdee/dbio/src/csvs/" />
+  <!-- shop -->
+  <table name="xx_shop" csvname="xx_shop.csv">
+    <field name="id" type="num" />    
+    <field name="area" type="num" />    
+    <field name="name" type="text" />    
+    <field name="merchant" type="num" />    
+    <field name="address" type="text" />    
+    <field name="phone" type="text" />    
+    <field name="business_time" type="text" />
+    <field name="completion_time" type="text" />
+    <field name="is_enabled" type="num" />
+    <field name="logo" type="text" />
+    <field name="create_date" type="text" />
+    <field name="modify_date" type="text" />
+  </table>
+  <!-- merchant -->
+  <table name="xx_merchant" csvname="xx_merchant.csv">
+    <field name="id" type="num" />    
+    <field name="area" type="num" />    
+    <field name="name" type="text" />    
+    <field name="merchant" type="num" />    
+    <field name="address" type="text" />    
+    <field name="phone" type="text" />    
+    <field name="business_time" type="text" />
+    <field name="completion_time" type="text" />
+    <field name="is_enabled" type="num" />
+    <field name="logo" type="text" />
+    <field name="create_date" type="text" />
+    <field name="modify_date" type="text" />
+  </table>
+</configuration>

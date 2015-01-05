@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="cmall">
+	<property environment="env" />
+	<!-- 属性 -->
+	<property name="src.dir" location="src" />
+	<property name="lib.dir" location="lib" />
+	<property name="test.src.dir" location="test" />
+	<property name="dist.dir" location="dist" />
+	<property name="classes.dir" location="${dist.dir}/classes" />
+	<property name="test.classes.dir" location="${dist.dir}/test/classes" />	
+	<property name="results.dir" location="${dist.dir}/results" />
+	<property name="reports.dir" location="${dist.dir}/reports" />
+  <property name="replease.dir" location="${dist.dir}/replease" />
+	
+	<path id="lib.classpath">
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</path>			
+	
+	<path id="compile.classpath">
+		<path refid="lib.classpath"></path>
+		<pathelement path="${classes.dir}"/>
+	</path>
+
+	<path id="junit.classpath">
+		<path refid="compile.classpath"></path>
+		<pathelement path="${test.classes.dir}" />		
+	</path>	
+	
+	<target name="init">
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+  <target name="clean">
+		<!-- <delete dir="${classes.dir}" /> -->
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<target name="compile" depends="init">			
+		<copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" includes="**/*.properties" />
+		</copy>
+		<javac encoding="utf-8" srcdir="${src.dir}" destdir="${classes.dir}"
+           debug="on" compiler="javac1.6" includeAntRuntime="false">
+			<classpath refid="compile.classpath" />
+			<include name="**/*.java" />
+		</javac>
+	</target>	
+
+  <target name="run" depends="compile">
+    <java classname="org.mjava.dbio.Dbio">
+      <arg value="-h"/>
+      <classpath refid="compile.classpath" />
+    </java>    
+  </target>
+  
+	<target name="test" depends="compile">
+		<mkdir dir="${test.classes.dir}" />
+		<mkdir dir="${results.dir}" />
+		<mkdir dir="${reports.dir}"/>
+		<copy todir="${test.classes.dir}">
+			<fileset dir="${test.src.dir}" includes="**/*.properties,**/*.csv" />
+		</copy>
+		<!-- 编译test -->
+		<javac encoding="utf-8" srcdir="${test.src.dir}" destdir="${test.classes.dir}"
+           debug="on" compiler="javac1.6" includeAntRuntime="false">
+			<classpath refid="junit.classpath" />
+			<include name="**/*.java" />
+		</javac>
+		<!-- 测试，将测试结果输出到${results.dir}下的xml文件 -->
+		<fileset dir="${test.classes.dir}" id="test.suite.classes">
+			<include name="**/*.class" />
+		</fileset>
+		<junit fork="on" haltonfailure="no" printsummary="on">
+			<classpath refid="junit.classpath" />
+			<formatter type="xml" />
+			<batchtest todir="${results.dir}">
+				<fileset refid="test.suite.classes" />
+			</batchtest>
+		</junit>
+		<!-- 根据${results.dir}下的xml文件，生成测试报告 -->
+		<junitreport todir="${reports.dir}">
+			<fileset dir="${results.dir}">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${reports.dir}"/>
+		</junitreport>
+	</target>
+
+  <!-- 构造打包时classpath需要的路径 -->
+  <pathconvert property="libs" pathsep=" ">
+    <mapper>
+      <chainedmapper>
+        <flattenmapper />
+        <globmapper from="*" to="lib/*" />
+      </chainedmapper>
+    </mapper>
+    <fileset dir="${lib.dir}">
+      <include name="*.jar" />
+    </fileset>
+  </pathconvert>
+  
+  <target name="jar" depends="test" description="打包">
+    <mkdir dir="${replease.dir}/lib" />
+    <echo>libs: ${libs}</echo>
+    <jar destfile="${replease.dir}/dbio.jar" compress="true">
+      <fileset dir="${classes.dir}" />
+      <!-- 打包成可运行，总果是普通包，不用manifest -->
+      <manifest>
+        <attribute name="Main-Class" value="org.mjava.dbio.Dbio" />
+        <attribute name="Class-Path" value="${libs}" />
+      </manifest>
+    </jar>
+    <copy todir="${replease.dir}/lib" overwrite="true">
+      <fileset dir="${lib.dir}" includes="*.jar" />
+    </copy>
+  </target>
+  
+</project>

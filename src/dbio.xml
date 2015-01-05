@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <!--数据库信息-->
+  <database username="root" password="8912737" server="localhost" port="3306" name="cmall"/>
+  <!--导入/出目录-->
+  <iopath name="/home/machine/workspace/jdee/dbio/src/csvs/"/>
+  <!--导入/出脚本-->
+  <!-- <sh export="cmall.sh" init="init.sh"/> -->
+  <sh export="cmall.sh" />
+  <!--xx_product-->
+  <table name="xx_product" datafile="xx_product.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="allocated_stock" type="num"/>
+    <field name="cost" type="text"/>
+    <field name="full_name" type="text"/>
+    <field name="hits" type="num"/>
+    <field name="image" type="text"/>
+    <field name="introduction" type="text"/>
+    <field name="is_gift" type="bool"/>
+    <field name="is_list" type="bool"/>
+    <field name="is_marketable" type="bool"/>
+    <field name="is_top" type="bool"/>
+    <field name="keyword" type="text"/>
+    <field name="market_price" type="text"/>
+    <field name="memo" type="text"/>
+    <field name="month_hits" type="num"/>
+    <field name="month_hits_date" type="date"/>
+    <field name="month_sales" type="num"/>
+    <field name="month_sales_date" type="date"/>
+    <field name="name" type="text"/>
+    <field name="point" type="num"/>
+    <field name="price" type="text"/>
+    <field name="sales" type="num"/>
+    <field name="score" type="text"/>
+    <field name="score_count" type="num"/>
+    <field name="seo_description" type="text"/>
+    <field name="seo_keywords" type="text"/>
+    <field name="seo_title" type="text"/>
+    <field name="sn" type="text"/>
+    <field name="stock" type="num"/>
+    <field name="stock_memo" type="text"/>
+    <field name="total_score" type="num"/>
+    <field name="unit" type="text"/>
+    <field name="week_hits" type="num"/>
+    <field name="week_hits_date" type="date"/>
+    <field name="week_sales" type="num"/>
+    <field name="week_sales_date" type="date"/>
+    <field name="weight" type="num"/>
+    <field name="shop" type="num"/>
+    <field name="goods" type="num"/>
+    <field name="merchant_product" type="num"/>
+  </table>
+  <!--xx_product_category_brand-->
+  <table name="xx_product_category_brand" datafile="xx_product_category_brand.xls">
+    <field name="product_categories" type="num"/>
+    <field name="brands" type="num"/>
+  </table>
+  <!--xx_company-->
+  <table name="xx_company" datafile="xx_company.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="name" type="text"/>
+    <field name="url" type="text"/>
+    <field name="introduction" type="text"/>
+  </table>
+  <!--xx_brand-->
+  <table name="xx_brand" datafile="xx_brand.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="orders" type="num"/>
+    <field name="introduction" type="text"/>
+    <field name="logo" type="text"/>
+    <field name="name" type="text"/>
+    <field name="type" type="num"/>
+    <field name="url" type="text"/>
+    <field name="county" type="text"/>
+    <field name="company" type="num"/>
+    <field name="level" type="num"/>
+  </table>
+  <!--xx_product_display_category-->
+  <table name="xx_product_display_category" datafile="xx_product_display_category.xls">
+    <field name="id" type="num"/>
+    <field name="product_category" type="num"/>
+    <field name="merchant_category" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="name" type="text"/>
+    <field name="seo_description" type="text"/>
+    <field name="seo_keywords" type="text"/>
+    <field name="seo_title" type="text"/>
+    <field name="grade" type="num"/>
+    <field name="tree_path" type="text"/>
+    <field name="parent" type="num"/>
+    <field name="is_leaf" type="bool"/>
+  </table>
+  <!--xx_merchant_product-->
+  <table name="xx_merchant_product" datafile="xx_merchant_product.xls">
+    <field name="id" type="num"/>
+    <field name="system_product" type="num"/>
+    <field name="merchant" type="num"/>
+    <field name="name" type="text"/>
+    <field name="is_exist" type="bool"/>
+    <field name="stock" type="num"/>
+    <field name="allocated_stock" type="num"/>
+    <field name="price" type="text"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="promotion_price" type="text"/>
+    <field name="sn" type="text"/>
+    <field name="introduction" type="text"/>
+    <field name="market_price" type="text"/>
+    <field name="member_price" type="text"/>
+    <field name="image" type="text"/>
+  </table>
+  <!--xx_merchant-->
+  <table name="xx_merchant" datafile="xx_merchant.xls">
+    <field name="id" type="num"/>
+    <field name="merchant_category" type="num"/>
+    <field name="name" type="text"/>
+    <field name="ename" type="text"/>
+    <field name="registered_address" type="text"/>
+    <field name="phone" type="text"/>
+    <field name="email" type="text"/>
+    <field name="business_address" type="text"/>
+    <field name="license_number" type="text"/>
+    <field name="license_picture" type="text"/>
+    <field name="organization_code" type="text"/>
+    <field name="organization_code_picture" type="text"/>
+    <field name="mobile" type="text"/>
+    <field name="is_enabled" type="bool"/>
+    <field name="is_approved" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+  </table>
+  <!--xx_shop-->
+  <table name="xx_shop" datafile="xx_shop.xls">
+    <field name="id" type="num"/>
+    <field name="area" type="num"/>
+    <field name="name" type="text"/>
+    <field name="merchant" type="num"/>
+    <field name="address" type="text"/>
+    <field name="phone" type="text"/>
+    <field name="business_time" type="date"/>
+    <field name="completion_time" type="date"/>
+    <field name="is_enabled" type="bool"/>
+    <field name="logo" type="text"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+  </table>
+  <!--xx_merchant_category-->
+  <table name="xx_merchant_category" datafile="xx_merchant_category.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="name" type="text"/>
+    <field name="seo_description" type="text"/>
+    <field name="seo_keywords" type="text"/>
+    <field name="seo_title" type="text"/>
+    <field name="type" type="num"/>
+  </table>
+  <!--xx_system_product_image-->
+  <table name="xx_system_product_image" datafile="xx_system_product_image.xls">
+    <field name="product" type="num"/>
+    <field name="large" type="text"/>
+    <field name="medium" type="text"/>
+    <field name="orders" type="num"/>
+    <field name="source" type="text"/>
+    <field name="thumbnail" type="text"/>
+    <field name="title" type="text"/>
+  </table>
+  <!--xx_product_category-->
+  <table name="xx_product_category" datafile="xx_product_category.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="orders" type="num"/>
+    <field name="grade" type="num"/>
+    <field name="name" type="text"/>
+    <field name="seo_description" type="text"/>
+    <field name="seo_keywords" type="text"/>
+    <field name="seo_title" type="text"/>
+    <field name="tree_path" type="text"/>
+    <field name="parent" type="num"/>
+  </table>
+  <!--xx_attribute-->
+  <table name="xx_attribute" datafile="xx_attribute.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="orders" type="num"/>
+    <field name="name" type="text"/>
+    <field name="property_index" type="num"/>
+    <field name="product_category" type="num"/>
+  </table>
+  <!--xx_area-->
+  <table name="xx_area" datafile="xx_area.xls">
+    <field name="id" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="orders" type="num"/>
+    <field name="full_name" type="text"/>
+    <field name="name" type="text"/>
+    <field name="tree_path" type="text"/>
+    <field name="parent" type="num"/>
+  </table>
+  <!--xx_product_product_image-->
+  <table name="xx_product_product_image" datafile="xx_product_product_image.xls">
+    <field name="product" type="num"/>
+    <field name="large" type="text"/>
+    <field name="medium" type="text"/>
+    <field name="orders" type="num"/>
+    <field name="source" type="text"/>
+    <field name="thumbnail" type="text"/>
+    <field name="title" type="text"/>
+  </table>
+  <!--xx_system_product-->
+  <table name="xx_system_product" datafile="xx_system_product.xls">
+    <field name="id" type="num"/>
+    <field name="brand" type="num"/>
+    <field name="product_category" type="num"/>
+    <field name="name" type="text"/>
+    <field name="full_name" type="text"/>
+    <field name="unit" type="text"/>
+    <field name="image" type="text"/>
+    <field name="introduction" type="text"/>
+    <field name="is_approved" type="num"/>
+    <field name="create_date" type="date"/>
+    <field name="modify_date" type="date"/>
+    <field name="barcode" type="text"/>
+    <field name="guarantee_date" type="date"/>
+    <field name="market_date" type="date"/>
+    <field name="attribute_value0" type="text"/>
+    <field name="attribute_value1" type="text"/>
+    <field name="attribute_value10" type="text"/>
+    <field name="attribute_value11" type="text"/>
+    <field name="attribute_value12" type="text"/>
+    <field name="attribute_value13" type="text"/>
+    <field name="attribute_value14" type="text"/>
+    <field name="attribute_value15" type="text"/>
+    <field name="attribute_value16" type="text"/>
+    <field name="attribute_value17" type="text"/>
+    <field name="attribute_value18" type="text"/>
+    <field name="attribute_value19" type="text"/>
+    <field name="attribute_value2" type="text"/>
+    <field name="attribute_value3" type="text"/>
+    <field name="attribute_value4" type="text"/>
+    <field name="attribute_value5" type="text"/>
+    <field name="attribute_value6" type="text"/>
+    <field name="attribute_value7" type="text"/>
+    <field name="attribute_value8" type="text"/>
+    <field name="attribute_value9" type="text"/>
+  </table>
+  <!--xx_attribute_option-->
+  <table name="xx_attribute_option" datafile="xx_attribute_option.xls">
+    <field name="attribute" type="num"/>
+    <field name="options" type="text"/>
+  </table>
+</configuration>

@@ -1,0 +1,1 @@
+echo "source /home/machine/workspace/jdee/dbio/src/csvs/init.sql" | /usr/bin/mysql -uroot -p8912737

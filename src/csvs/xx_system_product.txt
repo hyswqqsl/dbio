@@ -1,0 +1,82 @@
+-- MySQL dump 10.13  Distrib 5.5.31, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: cmall
+-- ------------------------------------------------------
+-- Server version	5.5.31-1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `xx_system_product`
+--
+
+DROP TABLE IF EXISTS `xx_system_product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `xx_system_product` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '序列号',
+  `brand` bigint(20) DEFAULT NULL,
+  `product_category` bigint(20) DEFAULT NULL,
+  `name` varchar(255) NOT NULL COMMENT '名称',
+  `full_name` varchar(255) DEFAULT NULL COMMENT '全称',
+  `unit` varchar(255) NOT NULL COMMENT '单位',
+  `image` varchar(255) DEFAULT NULL COMMENT '图片',
+  `introduction` longtext NOT NULL COMMENT '介绍',
+  `is_approved` bigint(20) NOT NULL COMMENT '是否审核通过',
+  `create_date` datetime NOT NULL COMMENT '创建时间',
+  `modify_date` datetime NOT NULL COMMENT '更新时间',
+  `barcode` varchar(255) DEFAULT NULL COMMENT '条形码',
+  `guarantee_date` datetime DEFAULT NULL COMMENT '保质期',
+  `market_date` datetime DEFAULT NULL COMMENT '上市日期',
+  `attribute_value0` varchar(255) DEFAULT NULL,
+  `attribute_value1` varchar(255) DEFAULT NULL,
+  `attribute_value10` varchar(255) DEFAULT NULL,
+  `attribute_value11` varchar(255) DEFAULT NULL,
+  `attribute_value12` varchar(255) DEFAULT NULL,
+  `attribute_value13` varchar(255) DEFAULT NULL,
+  `attribute_value14` varchar(255) DEFAULT NULL,
+  `attribute_value15` varchar(255) DEFAULT NULL,
+  `attribute_value16` varchar(255) DEFAULT NULL,
+  `attribute_value17` varchar(255) DEFAULT NULL,
+  `attribute_value18` varchar(255) DEFAULT NULL,
+  `attribute_value19` varchar(255) DEFAULT NULL,
+  `attribute_value2` varchar(255) DEFAULT NULL,
+  `attribute_value3` varchar(255) DEFAULT NULL,
+  `attribute_value4` varchar(255) DEFAULT NULL,
+  `attribute_value5` varchar(255) DEFAULT NULL,
+  `attribute_value6` varchar(255) DEFAULT NULL,
+  `attribute_value7` varchar(255) DEFAULT NULL,
+  `attribute_value8` varchar(255) DEFAULT NULL,
+  `attribute_value9` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统商品';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xx_system_product`
+--
+
+LOCK TABLES `xx_system_product` WRITE;
+/*!40000 ALTER TABLE `xx_system_product` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xx_system_product` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-09-11 15:55:09
